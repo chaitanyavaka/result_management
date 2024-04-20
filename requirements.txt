@@ -1,5 +1,5 @@
 asgiref==3.8.1
-Django==5.0.3
+Django==3.2.14
 et-xmlfile==1.1.0
 mysql==0.0.3
 mysqlclient==2.2.4
