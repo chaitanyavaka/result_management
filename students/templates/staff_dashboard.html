@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Staff Dashboard</h1>
+        {% if staff %}
+            <!-- Staff Details Section -->
+            <h2>Staff Details</h2>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                </tr>
+                <tr>
+                    <td>{{ staff.id }}</td>
+                    <td>{{ staff.name }}</td>
+                    <td>{{ staff.email }}</td>
+                    <td>{{ staff.phone_number }}</td>
+                </tr>
+            </table>
+        {% endif %}
+        
+        <!-- Search for Student Section -->
+        <h2>Search for Student</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="rollno">Enter Roll Number:</label>
+            <input type="text" id="rollno" name="rollno" required>
+            <button type="submit">Search</button>
+        </form>
+        
+        <!-- Give Attendance Button -->
+        <form action="{% url 'attendance_form' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Give Attendance</button>
+        </form>
+        
+        <!-- Logout button -->
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+
+   
+</body>
+</html>

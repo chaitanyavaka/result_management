@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Staff - Andhra Loyola Institute of Engineering and Technology</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #f0f0f0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo {
+      width: 150px;
+      height: auto;
+    }
+
+    h1 {
+      margin-left: 20px;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    label {
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://in.images.search.yahoo.com/images/view;_ylt=AwrKDyUH4A9mes0j4Mu9HAx.;_ylu=c2VjA3NyBHNsawNpbWcEb2lkAzQ4NThmNjQ0ZjQ5MzA1OWFmMGFjZjMyNTY4ZmU0YzBmBGdwb3MDMQRpdANiaW5n?back=https%3A%2F%2Fin.images.search.yahoo.com%2Fsearch%2Fimages%3Fp%3Daliet%2Blogo%26type%3DE210IN105G0%26fr%3Dmcafee%26fr2%3Dpiv-web%26tab%3Dorganic%26ri%3D1&w=474&h=468&imgurl=aliet.ac.in%2FICRIET2K23%2Fimages%2Flogo.png&rurl=https%3A%2F%2Faliet.ac.in%2FICRIET2K23%2Fmain.html&size=160.6KB&p=aliet+logo&oid=4858f644f493059af0acf32568fe4c0f&fr2=piv-web&fr=mcafee&tt=ALIET&b=0&ni=21&no=1&ts=&tab=organic&sigr=b6AXWyF2sFu5&sigb=UyQuB2C72skt&sigi=Gr1GujCqwItJ&sigt=X_L7XLCOdyoq&.crumb=l5NQXltOOCU&fr=mcafee&fr2=piv-web&type=E210IN105G0"  class="logo">
+    <h1>Andhra Loyola Institute of Engineering and Technology</h1>
+  </header>
+  <main>
+    <h2>Add Staff</h2>
+    <form method="post">
+      {% csrf_token %}
+      <label for="staff_id">Staff Id:</label>
+      <input type="text" id="staff_id" name="staff_id" required><br>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br>
+      <label for="phone_number">Phone Number:</label>
+      <input type="text" id="phone_number" name="phone_number" required><br>
+      <label for="department">Department:</label>
+      <input type="text" id="department" name="department" required><br>
+      <label for="designation">Designation:</label>
+      <input type="text" id="designation" name="designation" required><br>
+      <button type="submit">Add Staff</button>
+    </form>
+  </main>
+  <footer>
+    <p>&copy; Andhra Loyola Institute of Engineering and Technology</p>
+  </footer>
+</body>
+</html>

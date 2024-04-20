@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Present</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        thead {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .select-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .select-container select {
+            margin-right: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .select-container button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .select-container button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Students Present</h1>
+        <h2>Branch: {{ branch }}</h2>
+        <h2>Section: {{ section }}</h2>
+        <h2>Year: {{ year }}</h2>
+        <h2>Day: {{ day }}</h2>
+        <h2>Hour: {{ hour }}</h2>
+        
+        <form method="post" action="{% url 'submit_attendance' %}">
+            {% csrf_token %}
+            <input type="hidden" name="branch" value="{{ branch }}">
+            <input type="hidden" name="section" value="{{ section }}">
+            <input type="hidden" name="year" value="{{ year }}">
+            <input type="hidden" name="day" value="{{ day }}">
+            <input type="hidden" name="hour" value="{{ hour }}">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Roll Number</th>
+                        <th>Name</th>
+                        <th>Attendance</th>
+                        <!-- Add more table headers if needed -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{ student.rollno }}</td>
+                        <td>{{ student.name }}</td>
+                        <td class="select-container">
+                            <select name="attendance_{{ student.rollno }}">
+                                <option value="present">Present</option>
+                                <option value="absent">Absent</option>
+                            </select>
+                        </td>
+                        <!-- Add more table cells with student information if needed -->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="select-container">
+                <button type="submit">Submit Attendance</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        p {
+            font-size: 18px;
+            color: #777;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if student %}
+            <h1>Student Results</h1>
+            <!-- Display student details here if needed -->
+            <h2>Results for Semester: {{ semester }}</h2>
+            {% if results %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hallticket Number</th>
+                            <th>Subject Code</th>
+                            <th>Subject Name</th>
+                            <th>Internals</th>
+                            <th>Grade</th>
+                            <th>Credits</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in results %}
+                            <tr>
+                                <td>{{ result.htno }}</td>
+                                <td>{{ result.subcode }}</td>
+                                <td>{{ result.subname }}</td>
+                                <td>{{ result.internals }}</td>
+                                <td>{{ result.grade }}</td>
+                                <td>{{ result.credits }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No results found for the selected semester.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,143 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALIET Management System</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/first_page.css">
+<link rel="stylesheet" href="font-awesome/font-awesome/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+        width: 100%;
+        height: 200px;
+        display: block;
+    }
+
+    /* Style for navigation bar */
+    nav {
+        display: flex;
+        justify-content: flex-end; /* Align links to the right */
+        align-items: center; /* Center vertically */
+        background-color: #010249; /* Change background color as needed */
+        padding: 10px; /* Adjust padding as needed */
+    }
+
+    nav ul {
+        list-style-type: none; /* Remove bullet points */
+        margin: 0;
+        padding: 0;
+        display: flex; /* Make the list items horizontal */
+    }
+
+    nav ul li {
+        margin-right: 20px; /* Adjust spacing between links */
+    }
+
+    nav ul li a {
+        text-decoration: none; /* Remove underline */
+        color: #fff; /* Link color */
+        font-weight: bold; /* Make text bold */
+    }
+
+    /* Style for the logo */
+    #logo {
+        text-align: center; /* Center the logo */
+        margin-top: 1px; /* Add margin to separate logo from navigation bar */
+    }
+
+    .side-heading {
+        color: rgb(196, 0, 0); /* Change text color as needed */
+        padding: 10px; /* Adjust padding as needed */
+        display: inline-block; /* Ensures the background color only covers the text width */
+    }
+
+    .text {
+        padding: 20px;
+    }
+</style>
+</head>
+ 
+
+<body>
+<nav>
+    <ul>
+        
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Contact</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+    </ul>
+</nav>
+<div id="logo">
+    <img src="https://www.aliet.ac.in/images/header.png" alt="Logo" width="1900" height="150">
+</div>
+{% load static %}
+<video width="1900" height="600" controls autoplay>
+    <source src="{% static 'videos/aliet_video.mp4' %}" type="video/mp4">
+
+    Your browser does not support the video tag.
+</video>
+<div class="text">
+    <h3 class="side-heading">About Us</h3>
+    <h4>Andhra Loyola Institute of Engineering and Technology (ALIET) is managed and administered by the members of the Society of Jesus, also known as Jesuits, belonging to ‘Jesuit Province Society – Hyderabad’, covering both the states of Andhra Pradesh and Telangana. It was established in 2008 with the approval of Rev. Fr. Peter Hans Kolvenbach, the then Superior General of the Society of Jesus, and with the permission of Rev. Fr. Joseph Sebastian SJ, the then provincial of the Andhra Jesuit Province. The institution was finally set up under the leadership of Rev. Fr. Pothireddy Anthony SJ, the then provincial of the Andhra Jesuit Province and through the tireless efforts of Rev. Fr. Thainese SJ, the founding Director of ALIET. The institution, recognized by the Government of Andhra Pradesh and affiliated to JNTU Kakinada, was approved by AICTE, New Delhi, on 4th June 2008.</h4>
+    <h4>ALIET is a sister-institution of Andhra Loyola College (ALC), Vijayawada, a well-reputed autonomous college started in 1953 and awarded the status ‘College with Potential for Excellence’ (CPE) by the UGC. Both these institutions, situated in the same 98-acre campus, are registered under the Loyola College Society, Guntur-Vijayawada. </h4>
+    <h4>The Institution is recognized by the Government of Andhra Pradesh and affiliated to JNTUK, Kakinada. It offers 6 UG programs viz., Computer Science and Engineering (CSE) with a sanctioned intake of 120 seats, Electronics and Communications Engineering with 120 seats, Mechanical Engineering with 120 seats, Electrical and Electronics Engineering with 60 seats, Civil Engineering with 60 seats and Information Technology with 60 seats, adding up to 540 seats in the B.Tech. The College also offers 3 PG programs Viz., 2 M.Tech. Programs- CSE and DECS (Digital Electronics and Communication Systems), with an intake of 18 students each and Master of Business Administration with an intake of 60 seats.</h4>
+    <h4>The Andhra Pradesh State Skill Development Corporation (APSSDC) has established a skill development centre in collaboration with Siemens, to train the students. Nearly 3000 students have been trained so far. This is a milestone in the history of ALIET.</h4> 
+</div>
+
+
+
+
+
+<div class="text">
+    <h3 class="side-heading">Founders and Directors</h3>
+    <h4>St.Ignatius of Loyola, the founder of the Society Of Jesus, was born in 1491 as the last child of a large Basque family of Spain. The name 'Loyola' came from the ancestral castle that was the family heritage of St.Ignatius. He recorded his experiences in a book called “ The Spiritual Exercises” which became the soul and center, the rule and character of every Jesuit who came thereafter.</h4>
+</div>
+
+<div class="footer">
+    <div class="container">
+        <div class="w3_footer_grids">
+            <div class="col-md-3 w3_footer_grid">
+                <h3>Contact</h3>
+                <ul class="address">
+                    <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><span>Andhra Loyola Institute of Engineering and Technology
+                        Polytechnic Post Office
+                        Vijayawada-520 008
+                        Andhra Pradesh</span></li>
+                    <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">alietvijayawada@aliet.ac.in</a></li>
+                    <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>0866 -2498978</li>
+                </ul>
+            </div>
+           
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+    
+
+
+
+
+
+
+
+
+</div>
+<script>
+    // Clear browsing history and redirect to index page after logout
+    if (window.history && window.history.pushState) {
+        window.history.pushState('', '', '/');
+    }
+    sessionStorage.clear();
+    window.location.href = '/';
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff and Student Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full height of the viewport */
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        .button-container button {
+            padding: 25px 45px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .count-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .count-container span {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="button-container">
+    <button id="staff" onclick="redirectToStaff()">Staff</button>
+    <button id="student" onclick="redirectToAddStudent()">Students</button>
+</div>
+
+<!-- Your form and other elements -->
+
+<script>
+    // Function to redirect to add staff page
+    function redirectToStaff() {
+        window.location.href = "{% url 'add_staff' %}"; // Redirect to the add_staff URL
+    }
+
+    // Function to redirect to add_student page
+    function redirectToAddStudent() {
+        window.location.href = "{% url 'students' %}"; // Redirect to the students URL
+    }
+</script>
+
+<!-- Your other HTML content -->
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Body styles for centering */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f3f3; /* Change background color if needed */
+        }
+
+        /* Login section styles */
+        section.login {
+            background: url('https://tse3.mm.bing.net/th?id=OIP.hwqzSOBqo2kZm1zH02fj3gHaEK&pid=Api&P=0&h=180') no-repeat; 
+            width: 600px;
+            height: 400px;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        /* Form styles */
+        form {
+            background: white;
+            box-sizing: border-box;
+            width: 50%;
+            padding: 40px;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        label {
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgb(100, 100, 100);
+        }
+
+        input {
+            width: 200px;
+            border: none;
+            border-bottom: 2px solid #333;
+            padding: 10px 0px;
+            outline: none;
+        }
+
+        input:focus {
+            border-bottom: 2px solid #e0c445;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 150px;
+            border: none;
+            background: #333;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            padding: 10px;
+            box-shadow: 2px 2px 0px #e0c445;
+        }
+
+        button:hover {
+            background: #e0c445;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <section class="login">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <h1>Login</h1>
+            <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+    <script>
+        // JavaScript to handle back button click event
+        window.onload = function() {
+            if (window.history && window.history.pushState) {
+                window.history.pushState('forward', null, './#forward');
+                window.onpopstate = function() {
+                    if (!isLoggedIn) {
+                        window.location.href = "{% url 'index' %}"; // Redirect to index page if not logged in
+                    }
+                };
+            }
+        };
+    
+        // Define isLoggedIn variable based on authentication status
+        
+    </script>
+</body>
+</html>
